@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.4;
+}
+
+h1 {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    text-align: center;
+}
+
+div.row {
+    clear: both;
+    width: 100%;
+}
+  
+div.row::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+  
+div[class^="col-"] {
+    float: left;
+}
+
+div.col-1-10 { width: 10%; }
+div.col-2-10 { width: 20%; }
+div.col-3-10 { width: 30%; }
+div.col-7-10 { width: 70%; }
+
+#addTodo, #allTodos, #completedTodos {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 100px;;
+    outline: 2px solid black;
+}
+
+.add-item {
+    display: block;
+    padding-top: 10px;
+    padding-left: 20px;
+    height: 100px;
+}
+
+.add-item button, .todo-items button {
+    position: relative;
+    border: none;
+    background-color: #1E95EA;
+    color: white;
+    height: 40px;
+    width: 100px;
+    font-size: 14px;
+    float: right;
+    margin-right: 20px;
+} 
+
+#deleteButton {
+    background-color: indianred;
+}
+
+.add-item input, .todo-items input {
+    width: 75%;
+    padding: 0;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+.todo-items input { font-size: medium;}
+
+#allTodos, #completedTodos {
+    margin-top: 40px;
+    width: 60%;
+    height: auto;
+}
+
+.todo-items {
+    display: block;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 5px;
+    height: 100px;
+}
+
+#allTodos h2, #completedTodos h2 {
+    margin-left: 20px;
+    padding-top: 10px;
+}
+
+.no-items {
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+}

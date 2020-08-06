@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To-Do App</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>To-Do App</h1>
+        <div id="addTodo">
+            <add-todo @add-item="addTodo"></add-todo>
+        </div>
+
+        <div id="allTodos">
+            <h2>All Items</h2>
+            <p v-show="todos.length < 1" class="no-items">There are currently no items.</p>
+            <todo-item v-for="(todo, index) in todos" :count="index" :description="todo.item" :index="index" :key="todo.count" 
+            @complete-task="completeTodo" @remove-task="deleteTodo" @edit-task="editTodo"></todo-item>
+        </div>
+
+        <div id="completedTodos">
+            <h2>Completed Items</h2>
+            <p v-show="completed.length < 1" class="no-items">There are currently no items.</p>
+            <completed-todos v-for="(done, index) in completed" :count="index" :description="done.item" :index="index" :key="done.count" 
+            @add-todo-back="addTodoBack" @remove-task-from-completed="deleteTodoFromCompleted">
+            </completed-todos>
+        </div>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
