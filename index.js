@@ -112,7 +112,7 @@ Vue.component("completed-todos", {
             </div>
             <div class="col-2-10">
                 <div class="center">
-                    <button @click="deleteTask">Delete</button>
+                    <button @click="deleteTask" id="deleteButton">Delete</button>
                 </div>
             </div>
         </div>
