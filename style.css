@@ -43,7 +43,7 @@ div.col-7-10 { width: 70%; }
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-    height: 100px;;
+    height: 120px;;
     outline: 2px solid black;
 }
 
@@ -51,7 +51,6 @@ div.col-7-10 { width: 70%; }
     display: block;
     padding-top: 10px;
     padding-left: 20px;
-    height: 100px;
 }
 
 .add-item button, .todo-items button {
@@ -89,9 +88,7 @@ div.col-7-10 { width: 70%; }
     display: block;
     padding-top: 20px;
     padding-left: 20px;
-    padding-bottom: 20px;
-    margin-bottom: 5px;
-    height: 100px;
+    padding-bottom: 30px;
 }
 
 #allTodos h2, #completedTodos h2 {
@@ -101,7 +98,7 @@ div.col-7-10 { width: 70%; }
 
 .no-items {
     margin-left: 20px;
-    padding-top: 10px;
+    padding-top: 0px;
     padding-bottom: 10px;
 }
 

@@ -39,7 +39,7 @@ Vue.component('todo-item', {
     },
     template:
     `
-    <div class="todo-items">
+    <div class="todo-items uk-animation-toggle uk-animation-scale-up" tabindex="0" :id="style.id">
         <div class="row">
             <div class="col-1-10">
                 <div class="center">
@@ -47,7 +47,7 @@ Vue.component('todo-item', {
                 </div>
             </div>
             <div class="col-7-10">
-                <h3>Item {{ count + 1 }}</h3>
+                <h3>Task {{ count + 1 }}</h3>
                 <p v-show="!edit" @click="editTask">{{ description }}</p>
                 <input v-show="edit" v-model="description" @keyup.enter="editTask">
             </div>
@@ -62,12 +62,20 @@ Vue.component('todo-item', {
     `,
     data() {
         return {
-            edit: false
+            edit: false,
+            style: {
+                id: 'task' + this.index,
+                'target': '#task' + this.index,
+                'animation': 'uk-animation-scale-up uk-animation-reverse',
+                'slideRight': 'uk-animation-slide-right uk-animation-reverse',
+                'mode': 'click',
+                'duration': 400
+            }
         }
     },
     methods: {
-        completedTask() {
-            this.$emit('complete-task', this.index);
+        completedTask() { 
+            setTimeout(() => this.$emit('complete-task', this.index), this.style.duration);
         },
         deleteTask() {
             this.$emit('remove-task', this.index);
@@ -99,15 +107,15 @@ Vue.component("completed-todos", {
     }, 
     template:
     `
-    <div class="todo-items">
+    <div :id="style.id" class="todo-items" uk-scrollspy="cls:uk-animation-scale-up">
         <div class="row">
             <div class="col-1-10">
                 <div class="center">
-                    <input type="checkbox" @click="addBack">
+                    <input type="checkbox" @click="addBack" checked>
                 </div>
             </div>
             <div class="col-7-10">
-                <h3>Item {{ count + 1 }}</h3>
+                <h3>Task {{ count + 1 }}</h3>
                 <p class="completed">{{ description }}</p>
             </div>
             <div class="col-2-10">
@@ -118,9 +126,20 @@ Vue.component("completed-todos", {
         </div>
     </div>
     `,
+    data() {
+        return {
+            style: {
+                id: 'task' + this.index,
+                'target': '#task' + this.index,
+                'animation': 'uk-animation-slide-top uk-animation-reverse',
+                'mode': 'click',
+                'duration': 400
+            }
+        }
+    },
     methods: {
         addBack() {
-            this.$emit('add-todo-back', this.index);
+            setTimeout(() => this.$emit('add-todo-back', this.index), this.style.duration);
         },
         deleteTask() {
             this.$emit('remove-task-from-completed', this.index);

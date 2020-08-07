@@ -4,22 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.5.5/dist/js/uikit-icons.min.js"></script>
     <title>To-Do App</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div id="app">
-        <h1>To-Do App</h1>
-        <div id="addTodo">
-            <add-todo @add-item="addTodo"></add-todo>
+        
+        <div class="uk-section uk-section-muted">
+            <h1>To-Do App</h1>
+            <div id="addTodo">
+                <add-todo @add-item="addTodo"></add-todo>
+            </div>
         </div>
-
+        
         <div id="allTodos">
             <h2>All Items</h2>
             <p v-show="todos.length < 1" class="no-items">There are currently no items.</p>
             <todo-item v-for="(todo, index) in todos" :count="index" :description="todo.item" :index="index" :key="todo.count" 
             @complete-task="completeTodo" @remove-task="deleteTodo" @edit-task="editTodo"></todo-item>
         </div>
+        
 
         <div id="completedTodos">
             <h2>Completed Items</h2>
